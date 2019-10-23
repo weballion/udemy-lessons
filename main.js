@@ -19,4 +19,4 @@ appData.timeData = time;
 appData.expenses['answer-one'] = answerOne;
 appData.expenses['answer-two'] = answerTwo;
 
-alert("Бюджет на 1 день: " appData.moneyNum/30);
+alert("Бюджет на 1 день: " + appData.moneyNum/30);
