@@ -66,7 +66,7 @@ function checkSavings() {
 checkSavings();
 
 function chooseOptExpenses() {
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i <= 3; i++) {
         let a = prompt("Статья необязательных расходов?", '');
         if ((typeof(a))==="string" && a!=null && a!='' && a.length<50) {
             console.log("DONE");
