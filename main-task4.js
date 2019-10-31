@@ -65,10 +65,24 @@ let appData = {
         }
     },
     chooseIncomes: function () {
-        let items = prompt('Что принесет доход? (перечислить через запятую)', '');
-        appData.income = items.split(', ');
-        appData.income.push(prompt('ЧТо то еще?', ''));
-        appData.income.sort();
+        for (let i = 0; i < 1; i++) {
+            let items = prompt('Что принесет доход? (перечислить через запятую)', '');
+            if ((typeof(items))==="string" && items!=null && items!='') {
+                appData.income = items.split(', ');
+                appData.income.push(prompt('ЧТо то еще?', ''));
+                appData.income.sort()
+            } else {
+                i--;
+            }
+        }
+        appData.income.forEach(function (item, i) {
+            console.log((i + 1) + ". Способы доп. заработка: " + item);
+        });
+    },
+    seeAll: function () {
+        for (let key in appData) {
+            console.log("Наша программа включает в себя данные: " + key);
+        }
     }
 };
 
