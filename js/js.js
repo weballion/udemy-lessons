@@ -38,6 +38,9 @@ startBtn.addEventListener('click', function() {
     yearValue.value = new Date(Date.parse(time)).getFullYear();
     monthValue.value = new Date(Date.parse(time)).getMonth() + 1;
     dayValue.value = new Date(Date.parse(time)).getDate();
+    expensesBtn.disabled = false;
+    optionalExpensesBtn.disabled = false;
+    countBtn.disabled = false;
 });
 
 expensesBtn.addEventListener('click', function() {
@@ -57,6 +60,8 @@ expensesBtn.addEventListener('click', function() {
     
     }
     expensesValue.textContent = sum;
+    appData.expensesSum = sum;
+    console.log(appData.expensesSum); 
 });
 
 optionalExpensesBtn.addEventListener('click', function() {
@@ -69,7 +74,7 @@ optionalExpensesBtn.addEventListener('click', function() {
 
 countBtn.addEventListener('click', function() {
     if(appData.budget != undefined) {
-        appData.moneyPerDay = (appData.budget / 30).toFixed();
+        appData.moneyPerDay = ((appData.budget - appData.expensesSum) / 30).toFixed();
         dayBudgetValue.textContent = appData.moneyPerDay;
     
         if (appData.moneyPerDay < 1000) {
@@ -136,6 +141,7 @@ let appData = {
     budget: money,
     timeData: time,
     expenses: {},
+    expensesSum: '',
     optionalExpenses: {},
     income: [],
     savings: false
